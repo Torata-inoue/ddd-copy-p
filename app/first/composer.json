@@ -1,0 +1,10 @@
+{
+    "name": "root/first",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "First\\": "src/"
+        }
+    },
+    "require": {}
+}
