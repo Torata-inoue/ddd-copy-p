@@ -1,18 +1,8 @@
 <?php
 
-class Greet
-{
+var_dump(0 == 0);
+var_dump(0 == 1);
+var_dump('a' == 'a');
+var_dump('a' == 'b');
+var_dump('hello' == 'hello');
 
-}
-
-// 数字の変更
-$num = 0;
-$num = 1;
-
-// 文字の変更
-$c = 'o';
-$c = 'b';
-
-// 文字列の変更
-$greet = 'こんにちは';
-$greet = 'hello';
