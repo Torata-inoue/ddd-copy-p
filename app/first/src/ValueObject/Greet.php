@@ -6,6 +6,5 @@ class Greet
 }
 
 $greet = 'こんにちは';
-var_dump($greet);
-$greet = 'Hello';
-var_dump($greet);
+changeto($greet, 'Hello'); // このようなメソッドは存在しない
+var_dump($greet); // Helloと表示される
