@@ -35,6 +35,24 @@ readonly class FullName
     }
 }
 
+readonly class FullName2
+{
+    public function __construct(
+        private Name $firstName,
+        private Name $lastName
+    ) {
+    }
+}
+
+readonly class Name
+{
+    public function __construct(private string $value)
+    {
+        if (!$value) {
+            throw new Exception($this->value);
+        }
+    }
+}
 $nameA = new FullName('masanobu', 'naruse');
 $nameB = new FullName('masanobu', 'naruse');
 
