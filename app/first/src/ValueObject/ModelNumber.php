@@ -5,4 +5,7 @@ class ModelNumber
 
 }
 
-$modelNumber = "a20421-100-1";
+function method(string $modelNumber)
+{
+
+}
