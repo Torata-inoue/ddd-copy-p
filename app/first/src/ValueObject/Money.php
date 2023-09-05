@@ -18,11 +18,6 @@ readonly class Money
 }
 
 $myMoney = new Money(1000, 'JPY');
-$allowance = new Money(3000, 'JPY');
+$allowance = new Money(10, 'USD');
 $result = $myMoney->add($allowance);
-var_dump($result);
-
-$myMoney = 1000;
-$allowance = 3000;
-$result = $myMoney + $allowance;
 var_dump($result);
