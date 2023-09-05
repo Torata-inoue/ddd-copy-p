@@ -1,4 +1,6 @@
 <?php
 
 $fullName = 'naruse masanobu';
-echo $fullName;
+$tokens = explode(' ', $fullName);
+$lastName = $tokens[0];
+echo $lastName . PHP_EOL;
