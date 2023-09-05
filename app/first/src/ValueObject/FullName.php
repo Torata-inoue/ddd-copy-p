@@ -12,4 +12,5 @@ readonly class FullName
 $nameA = new FullName('masanobu', 'naruse');
 $nameB = new FullName('masanobu', 'naruse');
 
-var_dump($nameA->equals($nameB));
+$result = $nameA->FirstName === $nameB->FirstName;
+var_dump($result);
