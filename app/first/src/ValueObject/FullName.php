@@ -7,12 +7,17 @@ readonly class FullName
         public string $LastName
     ) {
     }
+
+    public function equals(FullName $other): bool
+    {
+        return $this->FirstName == $other->FirstName && $this->LastName == $other->LastName;
+    }
 }
 
 $nameA = new FullName('masanobu', 'naruse');
 $nameB = new FullName('masanobu', 'naruse');
 
-$result = $nameA->FirstName === $nameB->FirstName;
+$result = $nameA->equals($nameB);
 var_dump($result);
 
 $result2 = $nameA == $nameB;
