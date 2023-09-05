@@ -23,7 +23,11 @@ readonly class UserName
 }
 
 function createUser(UserName $name) {
+    if (!$name) {
+        throw new Exception($name);
+    }
+    if (strlen($name) >= 3) {
+        throw new Exception('ユーザー名は3文字以上です');
+    }
     $user = new User();
-    $user->id = $name;
-    return $user;
 }
