@@ -15,4 +15,5 @@ $nameB = new FullName('masanobu', 'naruse');
 $result = $nameA->FirstName === $nameB->FirstName;
 var_dump($result);
 
-var_dump(1.value == 0.value);
+$result2 = $nameA == $nameB;
+var_dump($result2);
