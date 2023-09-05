@@ -4,7 +4,8 @@ readonly class FullName
 {
     public function __construct(
         public string $FirstName,
-        public string $LastName
+        public string $LastName,
+        public string $MiddleName = ''
     ) {
     }
 
@@ -22,3 +23,8 @@ var_dump($result);
 
 $result2 = $nameA == $nameB;
 var_dump($result2);
+
+$badResult = $nameA->FirstName && $nameB->FirstName
+    && $nameA->LastName && $nameB->LastName
+    && $nameA->MiddleName && $nameB->MiddleName;
+var_dump($badResult);
