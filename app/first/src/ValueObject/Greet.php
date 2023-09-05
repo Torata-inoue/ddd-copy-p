@@ -5,6 +5,14 @@ class Greet
 
 }
 
+// 数字の変更
+$num = 0;
+$num = 1;
+
+// 文字の変更
+$c = 'o';
+$c = 'b';
+
+// 文字列の変更
 $greet = 'こんにちは';
-changeto('こんにちは', 'Hello'); // このようなメソッドは存在しない
-var_dump('こんにちは'); // Helloと表示される
+$greet = 'hello';
