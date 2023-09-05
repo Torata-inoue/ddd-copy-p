@@ -2,12 +2,12 @@
 
 readonly class FullName
 {
-    public string $FirstName;
-    public string $LastName;
-
-    public function FullName(string $FirstName, string $LastName)
-    {
-        $this->FirstName = $FirstName;
-        $this->LastName = $LastName;
+    public function __construct(
+        public string $FirstName,
+        public string $LastName
+    ) {
     }
 }
+
+$fullName = new FullName('masanobu', 'naruse');
+var_dump($fullName->LastName);
