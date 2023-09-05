@@ -2,11 +2,8 @@
 
 class User
 {
-    public function __construct(
-        private UserId $userId,
-        private UseName $useName
-    ) {
-    }
+    public UserId $userId;
+    public UseName $useName;
 }
 
 readonly class UserId
@@ -23,4 +20,10 @@ readonly class UserName
         private string $value
     ) {
     }
+}
+
+function createUser(UserName $name) {
+    $user = new User();
+    $user->id = $name;
+    return $user;
 }
