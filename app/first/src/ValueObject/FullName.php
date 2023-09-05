@@ -13,4 +13,4 @@ $fullName = new FullName('john', 'smith');
 var_dump($fullName->LastName);
 
 $fullName = new FullName("masanobu", "naruse");
-$fullName->changeLastName('sato');  // このようなメソッドは値オブジェクトに存在するべきではない
+$fullName = new FullName("masanobu", "sato");
