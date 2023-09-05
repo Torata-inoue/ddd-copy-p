@@ -11,7 +11,9 @@ readonly class FullName
 
     public function equals(FullName $other): bool
     {
-        return $this->FirstName == $other->FirstName && $this->LastName == $other->LastName;
+        return $this->FirstName == $other->FirstName
+            && $this->LastName == $other->LastName
+            && $this->MiddleName == $other->MiddleName;
     }
 }
 
@@ -24,7 +26,7 @@ var_dump($result);
 $result2 = $nameA == $nameB;
 var_dump($result2);
 
-$badResult = $nameA->FirstName && $nameB->FirstName
-    && $nameA->LastName && $nameB->LastName
-    && $nameA->MiddleName && $nameB->MiddleName;
-var_dump($badResult);
+//$badResult = $nameA->FirstName && $nameB->FirstName
+//    && $nameA->LastName && $nameB->LastName
+//    && $nameA->MiddleName && $nameB->MiddleName;
+//var_dump($badResult);
