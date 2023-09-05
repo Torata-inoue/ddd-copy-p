@@ -9,5 +9,5 @@ readonly class FullName
     }
 }
 
-$fullName = new FullName('masanobu', 'naruse');
+$fullName = new FullName('john', 'smith');
 var_dump($fullName->LastName);
