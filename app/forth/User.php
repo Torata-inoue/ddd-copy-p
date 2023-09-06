@@ -8,6 +8,6 @@ readonly class User
 
     public function __construct(private UserName $name)
     {
-        $this->userId = new UserId();
+        $this->userId = new UserId('id');
     }
 }
