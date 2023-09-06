@@ -15,3 +15,8 @@ class User
         $this->name = $name;
     }
 }
+
+if (!isset($request->name)) {
+    throw new Exception('リクエストのNameが空です');
+}
+$user = new User($request->name);
