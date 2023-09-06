@@ -4,7 +4,7 @@ namespace forth;
 
 class User
 {
-    public function __construct(private readonly UserId $id, private UserName $name)
+    public function __construct(private readonly UserId $id, public UserName $name)
     {
     }
 
