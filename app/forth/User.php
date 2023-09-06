@@ -4,7 +4,7 @@ namespace forth;
 
 class User
 {
-    public function __construct(private readonly UserId $id, public UserName $name)
+    public function __construct(private readonly UserId $id, private UserName $name)
     {
     }
 
@@ -13,6 +13,11 @@ class User
     {
         // 重複を確認するコード
         return true;
+    }
+
+    public function changeUserName(UserName $userName): void
+    {
+        $this->name = $userName;
     }
 }
 
