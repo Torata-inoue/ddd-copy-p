@@ -16,10 +16,14 @@ class User
     }
 }
 
+$checkId = new UserId("check");
+$checkName = new UseName("checker");
+$checkObj = new User($checkId, $checkName);
+
 $userId = new UserId("id");
 $userName = new UserName("nrs");
 $user = new User($userId, $userName);
 
 // 生成したオブジェクト自信に問い合わせることになる
-$result = $user->exists($user);
+$result = $checkObj->exists($user);
 var_dump($result);
