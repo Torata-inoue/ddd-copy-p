@@ -3,7 +3,8 @@
 class User
 {
     public function __construct(
-        public string $name
+        private readonly UserId $userId,
+        private string $name
     ) {
     }
 
@@ -16,7 +17,9 @@ class User
     }
 }
 
-if (!isset($request->name)) {
-    throw new Exception('リクエストのNameが空です');
+class UserId
+{
+    public function __construct(private string $value)
+    {
+    }
 }
-$user = new User($request->name);
