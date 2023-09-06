@@ -28,3 +28,16 @@ class UserId
     {
     }
 }
+
+$user = new User('naruse');
+$other = new User('nrs');
+function check(User $leftUser, User $rightUser): void
+{
+    if ($leftUser->equals($rightUser)) {
+        var_dump('同一のユーザーです');
+    } else {
+        var_dump('別のユーザーです');
+    }
+}
+
+check($user, $other);
