@@ -15,6 +15,11 @@ class User
         }
         $this->name = $name;
     }
+
+    public function equals(User $other): bool
+    {
+        return $this->userId === $other->userId;
+    }
 }
 
 class UserId
