@@ -9,3 +9,13 @@ class UserService
         // 重複を確認する処理
     }
 }
+
+$userService = new UserService();
+
+$userId = new UserId("id");
+$userName = new UserName("nrs");
+$user = new User($userId, $userName);
+
+// ドメインサービスに問い合わせ
+$result = $userService->exists($user);
+var_dump($result);
