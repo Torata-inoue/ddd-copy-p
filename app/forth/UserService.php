@@ -8,6 +8,11 @@ class UserService
     {
         // 重複を確認する処理
     }
+
+    public function changeName(User $user, UseName $useName):void
+    {
+        $user->name = $useName;
+    }
 }
 
 $userService = new UserService();
