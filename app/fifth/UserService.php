@@ -6,7 +6,7 @@ use PDO;
 
 class UserService
 {
-    public function __construct(private IUserRepositry $userRepositry)
+    public function __construct(private IUserRepository $userRepositry)
     {
 
     }
