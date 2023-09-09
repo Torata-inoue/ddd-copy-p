@@ -6,8 +6,16 @@ use PDO;
 
 class UserService
 {
+    public function __construct(private IUserRepositry $userRepositry)
+    {
+
+    }
+
     public function exists(User $user): bool
     {
+        $found = $this->userRepositry->find($user->name);
+        return $found != null;
+
         $host = '127.0.0.1';  // データベースのホスト
         $dbname = 'your_database_name';  // データベースの名前
         $user = 'your_username';  // データベースのユーザー名
