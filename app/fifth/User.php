@@ -2,12 +2,12 @@
 
 namespace fifth;
 
-readonly class User
+class User
 {
-    public UserId $id;
-
-    public function __construct(public UserName $name)
+    public function __construct(public UserName $name, public ?UserId $id = null)
     {
-        $this->id = new UserId('id');
+        if ($this->id === null) {
+            $this->id = new UserId('id');
+        }
     }
 }

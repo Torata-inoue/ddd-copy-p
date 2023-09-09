@@ -41,6 +41,14 @@ class UserRepository implements IUserRepository
 
     public function find(UserName $name): ?User
     {
-        // TODO: Implement find() method.
+        $stmt = $this->pdo->prepare("SELECT * FROM users where name = :name");
+        $stmt->bindParam('name', $name->value);
+        $res = $stmt->fetch();
+        if (!$res) {
+            return null;
+        }
+        $user = new User(new UserName($res['name']));
+        $user->id = new UserId($res['id']);
+        return $user;
     }
 }
