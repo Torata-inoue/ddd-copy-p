@@ -6,7 +6,7 @@ readonly class User
 {
     private UserId $userId;
 
-    public function __construct(private UserName $name)
+    public function __construct(public UserName $name)
     {
         $this->userId = new UserId('id');
     }
