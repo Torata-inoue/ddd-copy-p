@@ -6,13 +6,19 @@ use PDO;
 
 class Program
 {
+    public function __construct(private IUserRepository $userRepository)
+    {
+    }
+
     public function createUser(string $userName): void
     {
         $user = new User(new UserName($userName));
-        $userService = new UserService();
+        $userService = new UserService($this->userRepository);
         if ($userService->exists($user)) {
             throw new \Exception("{$userName}は既に存在しています");
         }
+
+        $this->userRepository->save();
 
         $host = '127.0.0.1';  // データベースのホスト
         $dbname = 'your_database_name';  // データベースの名前
