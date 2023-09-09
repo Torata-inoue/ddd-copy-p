@@ -11,14 +11,14 @@ class InMemoryUserRepository implements IUserRepository
 
     public function save(User $user): void
     {
-        $this->dictionary[$user->id->value] = $user;
+        $this->dictionary[$user->id->value] = clone $user;
     }
 
     public function find(UserName $name): ?User
     {
         foreach ($this->dictionary as $user) {
             if ($user->name->value === $name->value) {
-                return $user;
+                return clone $user;
             }
         }
         return null;
