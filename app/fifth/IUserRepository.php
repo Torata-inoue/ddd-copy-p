@@ -8,5 +8,5 @@ interface IUserRepository
 
     public function find(UserName $name): ?User;
 
-    public function exists(User $user): bool;
+    public function exists(UserName $name): bool;
 }
