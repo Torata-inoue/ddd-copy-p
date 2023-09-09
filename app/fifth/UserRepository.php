@@ -23,6 +23,17 @@ class UserRepository implements IUserRepository
 
     public function save(User $user): void
     {
+        $stmt = $this->pdo->prepare("SELECT * FROM users where id = :id");
+        $stmt->bindParam('id', $user->id->value);
+        $res = $stmt->fetch();
+        if ($res) {
+            $stmt = $this->pdo->prepare("UPDATE users SET name = :name WHERE id = :id");
+            $stmt->bindParam(':name', $user->name->value, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $res['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            return;
+        }
+
         $stmt = $this->pdo->prepare("INSERT INTO users (name) VALUES (:name)");
         $stmt->bindParam(':name', $user->name->value);
         $stmt->execute();
