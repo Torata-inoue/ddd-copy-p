@@ -2,7 +2,7 @@
 
 namespace sixth;
 
-class UserId
+readonly class UserId
 {
     public function __construct(public string $value)
     {
