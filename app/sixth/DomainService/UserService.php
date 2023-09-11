@@ -3,6 +3,7 @@
 namespace sixth\DomainService;
 
 use sixth\Entity\User;
+use sixth\Repository\IUserRepository;
 
 class UserService
 {
@@ -12,7 +13,7 @@ class UserService
 
     public function exists(User $user): bool
     {
-        $duplicatedUser = $this->userRepository->find($user->name);
+        $duplicatedUser = $this->userRepository->findByName($user->name);
         return $duplicatedUser != null;
     }
 }
