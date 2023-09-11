@@ -1,6 +1,9 @@
 <?php
 
-namespace sixth;
+namespace sixth\Entity;
+
+use sixth\ValueObject\UserId;
+use sixth\ValueObject\UserName;
 
 class User
 {

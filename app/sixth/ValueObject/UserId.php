@@ -1,6 +1,6 @@
 <?php
 
-namespace sixth;
+namespace sixth\ValueObject;
 
 readonly class UserId
 {
