@@ -7,9 +7,9 @@ use sixth\ValueObject\UserName;
 
 class User
 {
-    private UserId $id;
+    public UserId $id;
 
-    public function __construct(private UserName $name)
+    public function __construct(public UserName $name)
     {
         $this->id = new UserId(uniqid());
     }
