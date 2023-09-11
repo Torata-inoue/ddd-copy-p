@@ -3,6 +3,7 @@
 namespace sixth\ApplicationService;
 
 use sixth\DomainService\UserService;
+use sixth\DTO\UserData;
 use sixth\Entity\User;
 use sixth\Repository\IUserRepository;
 use sixth\ValueObject\UserId;
@@ -27,9 +28,11 @@ readonly class UserApplicationService
         $this->userRepository->save($user);
     }
 
-    public function get(string $userId): ?User
+    public function get(string $userId): UserData
     {
         $targetId = new UserId($userId);
-        return $this->userRepository->findById($targetId);
+        $user = $this->userRepository->findById($targetId);
+        $userData = new UserData($user->id->value, $user->name->value);
+        return $userData;
     }
 }
