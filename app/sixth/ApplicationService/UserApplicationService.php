@@ -32,7 +32,7 @@ readonly class UserApplicationService
     {
         $targetId = new UserId($userId);
         $user = $this->userRepository->findById($targetId);
-        $userData = new UserData($user->id->value, $user->name->value);
+        $userData = new UserData($user);
         return $userData;
     }
 }
