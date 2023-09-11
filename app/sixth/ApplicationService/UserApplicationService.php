@@ -2,6 +2,7 @@
 
 namespace sixth\ApplicationService;
 
+use sixth\Command\UserUpdateCommand;
 use sixth\DomainService\UserService;
 use sixth\DTO\UserData;
 use sixth\Entity\User;
@@ -36,14 +37,15 @@ readonly class UserApplicationService
         return $userData;
     }
 
-    public function update(string $userId, string $name = null, string $mailAddress = null): void
+    public function update(UserUpdateCommand $command): void
     {
-        $targetId = new UserId($userId);
+        $targetId = new UserId($command->id);
         $user = $this->userRepository->findById($targetId);
         if (!$user) {
             throw new \Exception('このユーザは存在しません');
         }
 
+        $name = $command->name;
         if ($name) {
             $newUserName = new UserName($name);
             $user->changeName($newUserName);
@@ -52,6 +54,7 @@ readonly class UserApplicationService
             }
         }
 
+        $mailAddress = $command->emailAddress;
         if ($mailAddress) {
             $newMailAddress = new MailAddress($mailAddress);
             $user->changeMailAddress($newMailAddress);
