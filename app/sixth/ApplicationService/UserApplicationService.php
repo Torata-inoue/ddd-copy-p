@@ -7,6 +7,7 @@ use sixth\DomainService\UserService;
 use sixth\DTO\UserData;
 use sixth\Entity\User;
 use sixth\Repository\IUserRepository;
+use sixth\ValueObject\MailAddress;
 use sixth\ValueObject\UserId;
 use sixth\ValueObject\UserName;
 
@@ -18,14 +19,15 @@ readonly class UserApplicationService
     ) {
     }
 
-    public function register(string $name): void
+    public function register(string $name, string $rawMailAddress): void
     {
-        $userName = new UserName($name);
-        $duplicateUser = $this->userRepository->findByName($userName);
+        $mailAddress = new MailAddress($rawMailAddress);
+        $duplicateUser = $this->userRepository->findByMail($mailAddress);
         if ($duplicateUser) {
             throw new \Exception('ユーザは既に存在しています');
         }
-        $user = new User($userName);
+        $userName = new UserName($name);
+        $user = new User($userName, $mailAddress);
         $this->userRepository->save($user);
     }
 

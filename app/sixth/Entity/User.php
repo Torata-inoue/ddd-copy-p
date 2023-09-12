@@ -2,6 +2,7 @@
 
 namespace sixth\Entity;
 
+use sixth\ValueObject\MailAddress;
 use sixth\ValueObject\UserId;
 use sixth\ValueObject\UserName;
 
@@ -9,7 +10,7 @@ class User
 {
     public UserId $id;
 
-    public function __construct(public UserName $name)
+    public function __construct(public UserName $name, public MailAddress $mailAddress)
     {
         $this->id = new UserId(uniqid());
     }
