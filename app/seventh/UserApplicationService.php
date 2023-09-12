@@ -8,6 +8,7 @@ class UserApplicationService
 
     public function __construct()
     {
+        // 依存解決が設定されていないのでエラーを起こす
         $this->userRepository = ServiceLocator::resolve();
     }
 
