@@ -2,6 +2,7 @@
 
 namespace sixth\ApplicationService;
 
+use sixth\Command\UserRegisterCommand;
 use sixth\DomainService\UserService;
 use sixth\Entity\User;
 use sixth\Repository\IUserRepository;
