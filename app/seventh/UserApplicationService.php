@@ -8,6 +8,7 @@ class UserApplicationService
 
     public function __construct()
     {
-        $this->userRepository = new InMemoryUserRepository();
+//        $this->userRepository = new InMemoryUserRepository();
+        $this->userRepository = new UserRepository();
     }
 }
