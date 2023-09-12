@@ -62,4 +62,14 @@ readonly class UserApplicationService
 
         $this->userRepository->save($user);
     }
+
+    public function delete(UserDeleteCommand $command): void
+    {
+        $targetId = new UserId($command->id);
+        $user = $this->userRepository->findById($targetId);
+        if (!$user) {
+            throw new \Exception('ユーザーが存在しません');
+        }
+        $this->userRepository->delete($user);
+    }
 }
