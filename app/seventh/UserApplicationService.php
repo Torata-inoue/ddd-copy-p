@@ -4,7 +4,7 @@ namespace seventh;
 
 class UserApplicationService
 {
-    public function __construct(private readonly UserRepository $userRepository)
+    public function __construct(private readonly IUserRepository $userRepository)
     {
     }
 }
