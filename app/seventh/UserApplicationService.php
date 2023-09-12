@@ -8,7 +8,8 @@ class UserApplicationService
 
     public function __construct()
     {
-//        $this->userRepository = new InMemoryUserRepository();
-        $this->userRepository = new UserRepository();
+        $this->userRepository = ServiceLocator::resolve();
     }
 }
+
+ServiceLocator::register(InMemoryUserRepository::class);
