@@ -10,6 +10,6 @@ class MockUserRegisterService implements IUserRegisterService
 
     public function handle(UserRegisterCommand $userRegisterCommand): void
     {
-        // TODO: Implement handle() method.
+        throw new \Exception();
     }
 }
