@@ -4,7 +4,10 @@ namespace seventh;
 
 class UserApplicationService
 {
-    public function __construct(private readonly IUserRepository $userRepository)
+    private readonly IUserRepository $userRepository;
+
+    public function __construct()
     {
+        $this->userRepository = new InMemoryUserRepository();
     }
 }
