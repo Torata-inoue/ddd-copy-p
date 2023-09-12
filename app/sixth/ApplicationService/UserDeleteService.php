@@ -7,7 +7,9 @@ use sixth\ValueObject\UserId;
 
 class UserDeleteService
 {
-    private readonly IUserRepository $userRepository;
+    public function __construct(private readonly IUserRepository $userRepository)
+    {
+    }
 
     public function handle(UserDeleteCommand $command): void
     {
