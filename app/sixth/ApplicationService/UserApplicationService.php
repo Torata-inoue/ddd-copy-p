@@ -68,7 +68,8 @@ readonly class UserApplicationService
         $targetId = new UserId($command->id);
         $user = $this->userRepository->findById($targetId);
         if (!$user) {
-            throw new \Exception('ユーザーが存在しません');
+            // 対象が見つからないときは退会成功とする
+            return;
         }
         $this->userRepository->delete($user);
     }
