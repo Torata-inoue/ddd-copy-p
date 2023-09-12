@@ -10,6 +10,11 @@ class UserApplicationService
     {
         $this->userRepository = ServiceLocator::resolve();
     }
+
+    public function register(UserRegisterCommand $command): void
+    {
+
+    }
 }
 
 ServiceLocator::register(UserRepository::class);
