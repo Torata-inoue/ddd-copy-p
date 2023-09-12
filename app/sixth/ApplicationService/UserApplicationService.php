@@ -51,15 +51,14 @@ readonly class UserApplicationService
         if ($name) {
             $newUserName = new UserName($name);
             $user->changeName($newUserName);
+            if ($this->userService->exists($user)) {
+                throw new \Exception('ユーザは既に存在しています');
+            }
         }
 
         $mailAddress = $command->emailAddress;
         if ($mailAddress) {
             $newMailAddress = new MailAddress($mailAddress);
-            $duplicateUser = $this->userRepository->findByMail($newMailAddress);
-            if ($duplicateUser) {
-                throw new \Exception('ユーザーは既に存在しています');
-            }
             $user->changeMailAddress($newMailAddress);
         }
 
