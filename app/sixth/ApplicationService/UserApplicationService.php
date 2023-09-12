@@ -19,15 +19,15 @@ readonly class UserApplicationService
     ) {
     }
 
-    public function register(string $name, string $rawMailAddress): void
+    public function register(string $name, string $mailAddress): void
     {
-        $mailAddress = new MailAddress($rawMailAddress);
-        $duplicateUser = $this->userRepository->findByMail($mailAddress);
-        if ($duplicateUser) {
+        $user = new User(
+            new UserName($name),
+            new MailAddress($mailAddress)
+        );
+        if ($this->userService->exists($user)) {
             throw new \Exception('ユーザは既に存在しています');
         }
-        $userName = new UserName($name);
-        $user = new User($userName, $mailAddress);
         $this->userRepository->save($user);
     }
 
