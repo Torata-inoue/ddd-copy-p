@@ -12,4 +12,4 @@ class UserApplicationService
     }
 }
 
-ServiceLocator::register(InMemoryUserRepository::class);
+ServiceLocator::register(UserRepository::class);
