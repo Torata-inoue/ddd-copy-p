@@ -13,7 +13,7 @@ class UserService
 
     public function exists(User $user): bool
     {
-        $duplicatedUser = $this->userRepository->findByName($user->name);
+        $duplicatedUser = $this->userRepository->findByMail($user->mailAddress);
         return $duplicatedUser != null;
     }
 }
