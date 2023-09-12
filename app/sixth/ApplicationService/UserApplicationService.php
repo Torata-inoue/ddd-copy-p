@@ -20,12 +20,12 @@ readonly class UserApplicationService
 
     public function register(string $name): void
     {
-        $user = new User(new UserName($name));
-
-        if ($this->userService->exists($user)) {
-            throw new \Exception('ユーザーは既に存在しています。');
+        $userName = new UserName($name);
+        $duplicateUser = $this->userRepository->findByName($userName);
+        if ($duplicateUser) {
+            throw new \Exception('ユーザは既に存在しています');
         }
-
+        $user = new User($userName);
         $this->userRepository->save($user);
     }
 
