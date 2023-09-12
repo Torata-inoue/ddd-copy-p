@@ -2,13 +2,19 @@
 
 namespace sixth;
 
+use sixth\ApplicationService\IUserRegisterService;
 use sixth\ApplicationService\UserApplicationService;
+use sixth\Command\UserRegisterCommand;
 use sixth\Command\UserUpdateCommand;
 use sixth\ValueObject\UserName;
 
 class Client
 {
-    private UserApplicationService $userApplicationService;
+    public function __construct(
+        private readonly UserApplicationService $userApplicationService,
+        private readonly IUserRegisterService $userRegisterService,
+    ) {
+    }
 
     public function changeName(string $id, string $name): void
     {
@@ -24,5 +30,11 @@ class Client
 
         $updateMailAddressCommand = new UserUpdateCommand($id, emailAddress: 'xxxx@example.com');
         $this->userApplicationService->update($updateMailAddressCommand);
+    }
+
+    public function register(string $name, string $email): void
+    {
+        $command = new UserRegisterCommand($name, $email);
+        $this->userRegisterService->handle($command);
     }
 }
