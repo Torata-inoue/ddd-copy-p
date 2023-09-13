@@ -12,8 +12,13 @@ class ServiceCollection
         $this->singletons[$abstract] = new $concrete();
     }
 
-    public function addTransient($concrete)
+    public function addTransient($concrete): void
     {
         $this->classes[$concrete] = $concrete;
+    }
+
+    public function buildServiceProvider(): ServiceProvider
+    {
+        return new ServiceProvider($this->classes, $this->singletons);
     }
 }
