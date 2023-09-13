@@ -1,11 +1,11 @@
 version: '3.9'
 
 services:
-  first:
+  app:
     build: ./docker/php
     tty: true
-    working_dir: /app/first
+    working_dir: /app
     volumes:
       - type: bind
-        source: ./app/first
-        target: /app/first
+        source: ./app
+        target: /app
