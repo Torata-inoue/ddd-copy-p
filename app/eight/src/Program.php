@@ -2,11 +2,10 @@
 
 namespace eight\src;
 
-use eight\src\ServiceCollection;
+use eight\src\Repository\InMemoryUserRepository;
 use eight\src\ApplicationService\UserApplicationService;
 use eight\src\DomainService\UserService;
 use eight\src\Repository\IUserRepository;
-use eight\src\Repository\UserRepository;
 
 class Program
 {
@@ -18,7 +17,7 @@ class Program
     private static function startUp(): void
     {
         $serviceCollection = new ServiceCollection();
-        $serviceCollection->addSingleton(IUserRepository::class, UserRepository::class);
+        $serviceCollection->addSingleton(IUserRepository::class, InMemoryUserRepository::class);
 
         $serviceCollection->addTransient(UserService::class);
         $serviceCollection->addTransient(UserApplicationService::class);
