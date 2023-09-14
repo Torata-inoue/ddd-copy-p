@@ -1,22 +1,15 @@
 <?php
 
-namespace nineth\Entity;
+namespace nineth\Factory;
 
+use nineth\Entity\User;
 use PDO;
 
-class User
+class UserFactory implements IUserFactory
 {
-    public UserId $id;
 
-    public function __construct(public UserName $name)
+    public function create(UserName $name): User
     {
-        $this->id = new UserId(uniqid());
-    }
-
-    public static function newUser(UserId $id, UserName $name): self
-    {
-        $this->name = $name;
-
         $host = '127.0.0.1';  // データベースのホスト
         $dbname = 'your_database_name';  // データベースの名前
         $user = 'your_username';  // データベースのユーザー名
@@ -25,11 +18,11 @@ class User
 
         $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 
-        $this->pdo = new PDO($dsn, $user, $pass);
-        $stmt = $this->pdo->prepare("SELECT max('id') FROM users;");
+        $pdo = new PDO($dsn, $user, $pass);
+        $stmt = $pdo->prepare("SELECT max('id') FROM users;");
         $res = $stmt->fetch();
-        $this->id = $res['id'] + 1;
+        $id = new UserId($res['id'] + 1);
 
-        return $this;
+        return User::newUser($id, $name);
     }
 }
