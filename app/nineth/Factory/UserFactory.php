@@ -23,6 +23,6 @@ class UserFactory implements IUserFactory
         $res = $stmt->fetch();
         $id = new UserId($res['id'] + 1);
 
-        return (new User($name))->newUser($id, $name);
+        return new User($id, $name);
     }
 }
