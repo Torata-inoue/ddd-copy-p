@@ -13,7 +13,7 @@ class User
         $this->id = new UserId(uniqid());
     }
 
-    public static function newUser(UserId $id, UserName $name): self
+    public function newUser(UserId $id, UserName $name): self
     {
         $this->name = $name;
 
