@@ -2,16 +2,17 @@
 
 namespace nineth\Entity;
 
-use PDO;
-
 class User
 {
-    public function __construct(public UserId $id, public UserName $name)
+    public function __construct(readonly public UserId $id, public UserName $name)
     {
     }
 
-    public function setId(UserId $id): void
+    public function createCircle(CircleName $name): Circle
     {
-        $this->id = $id;
+        return new Circle(
+            $this->id,
+            $name
+        );
     }
 }
