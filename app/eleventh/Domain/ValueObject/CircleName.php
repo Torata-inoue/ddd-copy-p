@@ -10,4 +10,9 @@ readonly class CircleName
             throw new \Exception('サークル名は3文字以上です');
         }
     }
+
+    public function equals(CircleName $name): bool
+    {
+        return $this->value === $name->value;
+    }
 }
