@@ -7,13 +7,15 @@ use tenth\Domain\Entity\IUserFactory;
 use tenth\Domain\Repository\IUserRepository;
 use tenth\Domain\Service\UserService;
 use tenth\Domain\ValueObject\UserName;
+use tenth\SqlConnection;
 
 class UserApplicationService
 {
     public function __construct(
         private IUserFactory $userFactory,
         private IUserRepository $userRepository,
-        private UserService $userService
+        private UserService $userService,
+        private SqlConnection $connection
     ) {
     }
 
