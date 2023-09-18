@@ -25,4 +25,10 @@ class SqlConnection
     {
         return $this->pdo;
     }
+
+    public function beginTransaction(): PDO
+    {
+        $this->pdo->beginTransaction();
+        return $this->pdo;
+    }
 }

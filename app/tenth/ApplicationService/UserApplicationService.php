@@ -21,6 +21,8 @@ class UserApplicationService
 
     public function register(UserRegisterCommand $command): void
     {
+        $transaction = $this->connection->beginTransaction();
+
         $userName = new UserName($command->name);
         $user = $this->userFactory->create($userName);
 
@@ -29,5 +31,7 @@ class UserApplicationService
         }
 
         $this->userRepository->save($user);
+
+        $transaction->commit();
     }
 }
