@@ -8,20 +8,20 @@ use tenth\Domain\Repository\IUserRepository;
 use tenth\Domain\Service\UserService;
 use tenth\Domain\ValueObject\UserName;
 use tenth\SqlConnection;
+use tenth\TransactionScope;
 
 class UserApplicationService
 {
     public function __construct(
         private IUserFactory $userFactory,
         private IUserRepository $userRepository,
-        private UserService $userService,
-        private SqlConnection $connection
+        private UserService $userService
     ) {
     }
 
     public function register(UserRegisterCommand $command): void
     {
-        $transaction = $this->connection->beginTransaction();
+        $transaction = new TransactionScope();
 
         $userName = new UserName($command->name);
         $user = $this->userFactory->create($userName);
@@ -32,6 +32,6 @@ class UserApplicationService
 
         $this->userRepository->save($user);
 
-        $transaction->commit();
+        $transaction->complete();
     }
 }
