@@ -14,4 +14,12 @@ class Circle
         public array $members
     ) {
     }
+
+    public function join(User $member): void
+    {
+        if (count($this->members) >= 29) {
+            throw new \Exception('サークルメンバーは29人までです');
+        }
+        $this->members[] = $member;
+    }
 }
