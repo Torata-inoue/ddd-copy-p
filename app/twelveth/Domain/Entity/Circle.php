@@ -9,6 +9,12 @@ use twelveth\Domain\ValueObject\UserName;
 
 class Circle
 {
+    /**
+     * @param CircleId $id
+     * @param CircleName $name
+     * @param User $owner
+     * @param UserId[] $members
+     */
     public function __construct(
         public readonly CircleId $id,
         public CircleName $name,
@@ -31,16 +37,16 @@ class Circle
         $this->members[] = $member;
     }
 
-    public function changeMemberName(UserId $id, UserName $name)
-    {
-        $target = null;
-
-        /** @var User $user */
-        foreach ($this->members as $user) {
-            if ($user->id->equals($id)) {
-                $target = $user;
-            }
-        }
-        $target->changeName($name);
-    }
+//    public function changeMemberName(UserId $id, UserName $name)
+//    {
+//        $target = null;
+//
+//        /** @var User $user */
+//        foreach ($this->members as $user) {
+//            if ($user->id->equals($id)) {
+//                $target = $user;
+//            }
+//        }
+//        $target->changeName($name);
+//    }
 }
