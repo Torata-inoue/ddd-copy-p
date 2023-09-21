@@ -60,11 +60,7 @@ readonly class CircleApplicationService
             throw new \Exception('サークルが見つかりませんでした');
         }
 
-        if (count($circle->members) >= 29) {
-            throw new \Exception('サークルは30人までです');
-        }
-
-        $circle->members[] = $member;
+        $circle->join($member);
         $this->circleRepository->save($circle);
 
         $transaction->complete();
