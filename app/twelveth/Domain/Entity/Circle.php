@@ -11,7 +11,7 @@ class Circle
         public readonly CircleId $id,
         public CircleName $name,
         public User $owner,
-        public array $members
+        private array $members
     ) {
     }
 
