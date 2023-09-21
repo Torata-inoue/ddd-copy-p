@@ -1,6 +1,6 @@
 <?php
 
-namespace eleventh\Command;
+namespace twelveth\Command;
 
 class CircleCreateCommand
 {

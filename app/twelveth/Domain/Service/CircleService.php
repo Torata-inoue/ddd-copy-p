@@ -1,6 +1,6 @@
 <?php
 
-namespace eleventh\Domain\Service;
+namespace twelveth\Domain\Service;
 
 use eleventh\Domain\Entity\Circle;
 use eleventh\Domain\Repository\ICircleRepository;

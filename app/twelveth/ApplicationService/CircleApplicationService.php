@@ -1,6 +1,6 @@
 <?php
 
-namespace eleventh\ApplicationService;
+namespace twelveth\ApplicationService;
 
 use eleventh\Command\CircleCreateCommand;
 use eleventh\Command\CircleJoinCommand;

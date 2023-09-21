@@ -1,6 +1,6 @@
 <?php
 
-namespace eleventh\Domain\ValueObject;
+namespace twelveth\Domain\ValueObject;
 
 readonly class CircleId
 {

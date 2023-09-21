@@ -1,6 +1,6 @@
 <?php
 
-namespace eleventh\Domain\Repository;
+namespace twelveth\Domain\Repository;
 
 use eleventh\Domain\Entity\Circle;
 use eleventh\Domain\ValueObject\CircleId;

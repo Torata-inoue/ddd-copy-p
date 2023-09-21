@@ -1,6 +1,6 @@
 <?php
 
-namespace eleventh\Domain\Repository;
+namespace twelveth\Domain\Repository;
 
 use eleventh\Domain\Entity\User;
 use eleventh\Domain\ValueObject\MailAddress;
