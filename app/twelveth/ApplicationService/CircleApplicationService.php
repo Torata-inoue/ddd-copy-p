@@ -65,4 +65,28 @@ readonly class CircleApplicationService
 
         $transaction->complete();
     }
+
+    public function update(CiecleUpdateCommand $command): void
+    {
+        $transaction = new TransactionScope();
+        $id = new CircleId($command->id);
+        // この時点でUserのインスタンスが再構築されるが
+        $circle = $this->circleRepository->findById($id);
+        if (!$circle) {
+            throw new \Exception('サークルが見つかりません');
+        }
+        if ($command->name) {
+            $name = new CircleName($command->name);
+            $circle->changeName($name);
+
+            if ($this->circleService->exists($circle)) {
+                throw new \Exception('サークルは既に存在しています');
+            }
+        }
+        $this->circleRepository->save($circle);
+
+        $transaction->complete();
+
+        // Userインスタンスは使われることなく捨てられる
+    }
 }
