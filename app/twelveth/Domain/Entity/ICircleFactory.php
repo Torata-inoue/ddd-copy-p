@@ -2,7 +2,7 @@
 
 namespace twelveth\Domain\Entity;
 
-use eleventh\Domain\ValueObject\CircleName;
+use twelveth\Domain\ValueObject\CircleName;
 
 interface ICircleFactory
 {

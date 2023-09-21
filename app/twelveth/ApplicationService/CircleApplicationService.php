@@ -2,16 +2,16 @@
 
 namespace twelveth\ApplicationService;
 
-use eleventh\Command\CircleCreateCommand;
-use eleventh\Command\CircleJoinCommand;
-use eleventh\Domain\Entity\ICircleFactory;
-use eleventh\Domain\Repository\ICircleRepository;
-use eleventh\Domain\Repository\IUserRepository;
-use eleventh\Domain\Service\CircleService;
-use eleventh\Domain\ValueObject\CircleId;
-use eleventh\Domain\ValueObject\CircleName;
-use eleventh\Domain\ValueObject\UserId;
-use eleventh\TransactionScope;
+use twelveth\Command\CircleCreateCommand;
+use twelveth\Command\CircleJoinCommand;
+use twelveth\Domain\Entity\ICircleFactory;
+use twelveth\Domain\Repository\ICircleRepository;
+use twelveth\Domain\Repository\IUserRepository;
+use twelveth\Domain\Service\CircleService;
+use twelveth\Domain\ValueObject\CircleId;
+use twelveth\Domain\ValueObject\CircleName;
+use twelveth\Domain\ValueObject\UserId;
+use twelveth\TransactionScope;
 
 readonly class CircleApplicationService
 {

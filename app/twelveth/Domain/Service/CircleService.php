@@ -2,8 +2,8 @@
 
 namespace twelveth\Domain\Service;
 
-use eleventh\Domain\Entity\Circle;
-use eleventh\Domain\Repository\ICircleRepository;
+use twelveth\Domain\Entity\Circle;
+use twelveth\Domain\Repository\ICircleRepository;
 
 readonly class CircleService
 {

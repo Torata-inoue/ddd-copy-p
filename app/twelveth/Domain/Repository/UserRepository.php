@@ -2,10 +2,10 @@
 
 namespace twelveth\Domain\Repository;
 
-use eleventh\Domain\Entity\User;
-use eleventh\Domain\ValueObject\MailAddress;
-use eleventh\Domain\ValueObject\UserName;
-use eleventh\SqlConnection;
+use twelveth\Domain\Entity\User;
+use twelveth\Domain\ValueObject\MailAddress;
+use twelveth\Domain\ValueObject\UserName;
+use twelveth\SqlConnection;
 
 class UserRepository implements IUserRepository
 {

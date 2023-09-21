@@ -2,9 +2,9 @@
 
 namespace twelveth\Domain\Repository;
 
-use eleventh\Domain\Entity\Circle;
-use eleventh\Domain\ValueObject\CircleId;
-use eleventh\Domain\ValueObject\CircleName;
+use twelveth\Domain\Entity\Circle;
+use twelveth\Domain\ValueObject\CircleId;
+use twelveth\Domain\ValueObject\CircleName;
 
 interface ICircleRepository
 {

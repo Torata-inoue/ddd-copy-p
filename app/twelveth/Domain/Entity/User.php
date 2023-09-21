@@ -2,8 +2,8 @@
 
 namespace twelveth\Domain\Entity;
 
-use eleventh\Domain\ValueObject\MailAddress;
-use eleventh\Domain\ValueObject\UserName;
+use twelveth\Domain\ValueObject\MailAddress;
+use twelveth\Domain\ValueObject\UserName;
 
 class User
 {
