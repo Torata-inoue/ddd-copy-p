@@ -17,7 +17,8 @@ class Circle
 
     public function isFull(): bool
     {
-        return count($this->members) >= 29;
+//        return count($this->members) >= 29;
+        return count($this->members) >= 49;
     }
 
     public function join(User $member): void
