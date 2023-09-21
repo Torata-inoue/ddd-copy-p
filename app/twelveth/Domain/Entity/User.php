@@ -12,3 +12,13 @@ class User
     public UserName $name;
 
 }
+
+$user = new User();
+
+$userName = new \sixth\ValueObject\UserName('newName');
+
+// NG
+$user->name = $userName;
+
+// OK
+$user->changeName($userName);
