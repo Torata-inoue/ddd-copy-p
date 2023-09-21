@@ -4,6 +4,8 @@ namespace twelveth\Domain\Entity;
 
 use twelveth\Domain\ValueObject\CircleId;
 use twelveth\Domain\ValueObject\CircleName;
+use twelveth\Domain\ValueObject\UserId;
+use twelveth\Domain\ValueObject\UserName;
 
 class Circle
 {
@@ -27,5 +29,18 @@ class Circle
             throw new \Exception('サークルメンバーは29人までです');
         }
         $this->members[] = $member;
+    }
+
+    public function changeMemberName(UserId $id, UserName $name)
+    {
+        $target = null;
+
+        /** @var User $user */
+        foreach ($this->members as $user) {
+            if ($user->id->equals($id)) {
+                $target = $user;
+            }
+        }
+        $target->changeName($name);
     }
 }
