@@ -22,7 +22,7 @@ class Circle
 
     public function join(User $member): void
     {
-        if (count($this->members) >= 29) {
+        if ($this->isFull()) {
             throw new \Exception('サークルメンバーは29人までです');
         }
         $this->members[] = $member;
